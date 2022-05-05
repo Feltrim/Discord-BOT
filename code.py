@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import youtube_dl
 import os
+from dotenv import load_dotenv
 
 client = commands.Bot(command_prefix=")")
 
@@ -67,5 +68,5 @@ async def stop(ctx):
     voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
     voice.stop()
 
-
-client.run('OTY0NTI4NzIwMTAwNjEwMDU5.GKVJBx.g770M_Rgdebpql0p-fTJvV-UwCx-X8CBup2si4')
+load_dotenv()
+client.run(os.getenv("TOKEN"))
