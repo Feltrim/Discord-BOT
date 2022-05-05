@@ -4,6 +4,7 @@
 Simple Discord Music Bot with the Prefix ")"
 
 Commands:
+
 )play [url] (Enter the channel and play an audio)
 
 )pause (Pause the audio)
