@@ -72,3 +72,6 @@ async def stop(ctx):
 
 load_dotenv()
 client.run(os.getenv("TOKEN"))
+
+
+# teste
