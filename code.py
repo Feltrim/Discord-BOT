@@ -6,8 +6,9 @@ from dotenv import load_dotenv
 
 client = commands.Bot(command_prefix=")")
 
+
 @client.command()
-async def play(ctx, url : str):
+async def play(ctx, url: str):
     song_there = os.path.isfile("song.mp3")
     try:
         if song_there:
@@ -16,8 +17,8 @@ async def play(ctx, url : str):
         await ctx.send("Wait for the current playing music to end or use the 'stop' command")
         return
 
-    voiceChannel = discord.utils.get(ctx.guild.voice_channels, name='General')
-    await voiceChannel.connect()
+    voice_channel = discord.utils.get(ctx.guild.voice_channels, name='General')
+    await voice_channel.connect()
     voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
 
     ydl_opts = {
@@ -67,6 +68,7 @@ async def resume(ctx):
 async def stop(ctx):
     voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
     voice.stop()
+
 
 load_dotenv()
 client.run(os.getenv("TOKEN"))
